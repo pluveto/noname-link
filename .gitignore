@@ -44,3 +44,7 @@ dependency-graph.png
 *.out
 *.synctex.gz
 contract_tests/*
+
+integration.md
+private
+main
