@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	stdlog "log"
+	"math/big"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -283,6 +284,7 @@ func init() {
 	}
 
 	DefaultNodeHome = filepath.Join(userHomeDir, ".noname")
+	sdk.DefaultPowerReduction = sdk.NewIntFromBigInt(new(big.Int).Exp(big.NewInt(10), big.NewInt(18), nil))
 }
 
 // NewNonameApp returns a reference to an initialized Noname.
