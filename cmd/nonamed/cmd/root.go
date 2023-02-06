@@ -28,6 +28,7 @@ import (
 	ibcchanneltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
@@ -48,7 +49,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		WithInput(os.Stdin).
 		WithAccountRetriever(types.AccountRetriever{}).
 		WithHomeDir(noname.DefaultNodeHome).
-		WithViper("")
+		WithViper("NONAMED")
 
 	rootCmd := &cobra.Command{
 		Use:   "nonamed",
@@ -68,8 +69,10 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 				return err
 			}
 
-			customTemplate, customNonameConfig := initAppConfig()
-			return server.InterceptConfigsPreRunHandler(cmd, customTemplate, customNonameConfig)
+			viper.Set(tmcli.HomeFlag, initClientCtx.HomeDir)
+
+			nonameTemplate, nonameAppConfig := initAppConfig()
+			return server.InterceptConfigsPreRunHandler(cmd, nonameTemplate, nonameAppConfig)
 		},
 	}
 
