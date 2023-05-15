@@ -33,8 +33,8 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	noname "github.com/pluveto/demo1/v1/app"
-	"github.com/pluveto/demo1/v1/app/params"
+	noname "github.com/pluveto/demo1/app"
+	"github.com/pluveto/demo1/app/params"
 )
 
 // NewRootCmd creates a new root command for simd. It is called once in the

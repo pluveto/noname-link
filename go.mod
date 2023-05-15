@@ -1,4 +1,4 @@
-module github.com/pluveto/demo1/v1
+module github.com/pluveto/demo1
 
 go 1.17
 

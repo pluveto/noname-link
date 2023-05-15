@@ -6,9 +6,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	app "github.com/pluveto/demo1/v1/app"
-	"github.com/pluveto/demo1/v1/cmd/nonamed/cmd"
-	"github.com/pluveto/demo1/v1/types"
+	app "github.com/pluveto/demo1/app"
+	"github.com/pluveto/demo1/cmd/nonamed/cmd"
+	"github.com/pluveto/demo1/types"
 )
 
 func main() {

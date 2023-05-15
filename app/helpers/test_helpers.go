@@ -12,7 +12,7 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	nonameapp "github.com/pluveto/demo1/v1/app"
+	nonameapp "github.com/pluveto/demo1/app"
 )
 
 // SimAppChainID hardcoded chainID for simulation

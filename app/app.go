@@ -109,8 +109,8 @@ import (
 	wasmkeeper "github.com/CosmWasm/wasmd/x/wasm/keeper"
 	"github.com/prometheus/client_golang/prometheus"
 
-	nonameante "github.com/pluveto/demo1/v1/ante"
-	nonameappparams "github.com/pluveto/demo1/v1/app/params"
+	nonameante "github.com/pluveto/demo1/ante"
+	nonameappparams "github.com/pluveto/demo1/app/params"
 
 	// unnamed import of statik for swagger UI support
 	_ "github.com/cosmos/cosmos-sdk/client/docs/statik"

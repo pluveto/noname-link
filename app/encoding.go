@@ -1,7 +1,7 @@
 package noname
 
 import (
-	"github.com/pluveto/demo1/v1/app/params"
+	"github.com/pluveto/demo1/app/params"
 
 	"github.com/cosmos/cosmos-sdk/std"
 )

@@ -6,8 +6,8 @@ import (
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	"github.com/stretchr/testify/require"
 
-	app "github.com/pluveto/demo1/v1/app"
-	"github.com/pluveto/demo1/v1/cmd/nonamed/cmd"
+	app "github.com/pluveto/demo1/app"
+	"github.com/pluveto/demo1/cmd/nonamed/cmd"
 )
 
 func TestRootCmdConfig(t *testing.T) {

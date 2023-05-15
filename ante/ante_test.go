@@ -16,8 +16,8 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	nonameapp "github.com/pluveto/demo1/v1/app"
-	nonamehelpers "github.com/pluveto/demo1/v1/app/helpers"
+	nonameapp "github.com/pluveto/demo1/app"
+	nonamehelpers "github.com/pluveto/demo1/app/helpers"
 )
 
 type IntegrationTestSuite struct {
