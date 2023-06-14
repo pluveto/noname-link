@@ -26,6 +26,9 @@ import (
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	ibcclienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
 	ibcchanneltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
+	ethermintclient "github.com/evmos/ethermint/client"
+	"github.com/evmos/ethermint/crypto/hd"
+	nonameclient "github.com/pluveto/demo1/client"
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -49,6 +52,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		WithInput(os.Stdin).
 		WithAccountRetriever(types.AccountRetriever{}).
 		WithHomeDir(noname.DefaultNodeHome).
+		WithKeyringOptions(hd.EthSecp256k1Option()).
 		WithViper("NONAMED")
 
 	rootCmd := &cobra.Command{
@@ -102,6 +106,9 @@ func initRootCmd(rootCmd *cobra.Command, encodingConfig params.EncodingConfig) {
 	cfg.Seal()
 
 	rootCmd.AddCommand(
+		ethermintclient.ValidateChainID(
+			genutilcli.InitCmd(noname.ModuleBasics, noname.DefaultNodeHome),
+		),
 		genutilcli.InitCmd(noname.ModuleBasics, noname.DefaultNodeHome),
 		genutilcli.CollectGenTxsCmd(banktypes.GenesisBalancesIterator{}, noname.DefaultNodeHome),
 		genutilcli.GenTxCmd(noname.ModuleBasics, encodingConfig.TxConfig, banktypes.GenesisBalancesIterator{}, noname.DefaultNodeHome),
@@ -124,6 +131,7 @@ func initRootCmd(rootCmd *cobra.Command, encodingConfig params.EncodingConfig) {
 		queryCommand(),
 		txCommand(),
 		keys.Commands(noname.DefaultNodeHome),
+		nonameclient.KeyCommands(noname.DefaultNodeHome),
 	)
 }
 
